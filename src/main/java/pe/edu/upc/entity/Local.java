@@ -12,4 +12,6 @@ public class Local implements Serializable{
 	
 	@Id
 	private int idLocal;
+	
+	private String nombreLocal;
 }
