@@ -12,4 +12,6 @@ public class Usuario implements Serializable{
 
 	@Id
 	private int idUsuario;
+	
+	private String direccion;
 }
