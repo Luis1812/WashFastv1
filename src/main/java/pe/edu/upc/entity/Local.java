@@ -14,4 +14,12 @@ public class Local implements Serializable{
 	private int idLocal;
 	
 	private String nombreLocal;
+
+	public String getNombreLocal() {
+		return nombreLocal;
+	}
+
+	public void setNombreLocal(String nombreLocal) {
+		this.nombreLocal = nombreLocal;
+	}
 }
