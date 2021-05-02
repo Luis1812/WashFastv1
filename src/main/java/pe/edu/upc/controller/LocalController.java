@@ -10,7 +10,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import pe.edu.upc.entity.Local;
-import pe.edu.upc.service.LocalService;
+import pe.edu.upc.service.ILocalService;
 
 @Named
 @RequestScoped
@@ -20,7 +20,7 @@ public class LocalController implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Inject
-	private LocalService lService;
+	private ILocalService lService;
 	private Local local;
 	List<Local> listaLocales; 
 	

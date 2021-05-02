@@ -9,12 +9,12 @@ import javax.inject.Named;
 
 import pe.edu.upc.dao.LocalDao;
 import pe.edu.upc.entity.Local;
-import pe.edu.upc.service.LocalService;
+import pe.edu.upc.service.ILocalService;
 
 @Named
 @RequestScoped
 
-public class LocalServiceImpl implements LocalService, Serializable {
+public class LocalServiceImpl implements ILocalService, Serializable {
 
 	private static final long serialVersionUID = 1L;
 
