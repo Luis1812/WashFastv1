@@ -2,35 +2,49 @@ package pe.edu.upc.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="usuario")
 public class Usuario implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
     private int idUsuario;
 
+	@Column(name="usuario", nullable=false, length=30)
 	private String usuario;
 	
+	@Column(name="contrasena", nullable=false, length = 30)
 	private String contrasena;
 	
+	@Column(name="sexo", nullable=false, length = 1)
 	private char sexo;
 	
+	@Column(name="direccion", nullable=false, length = 100)
     private String direccion;
 
+	@Column(name="telefono", nullable=false, length = 20)
     private String telefono;
 
-    private String nombre;
+	@Column(name="nombres", nullable=false, length = 30)
+    private String nombres;
 
-    private String apellido;
+	@Column(name="apellidos", nullable=false, length = 30)
+    private String apellidos;
 
+	@Column(name="correo", nullable=false, length = 100)
     private String correo;
 
 	public Usuario(int idUsuario, String usuario, String contrasena, char sexo, String direccion, String telefono,
-			String nombre, String apellido, String correo) {
+			String nombres, String apellidos, String correo) {
 		super();
 		this.idUsuario = idUsuario;
 		this.usuario = usuario;
@@ -38,8 +52,8 @@ public class Usuario implements Serializable{
 		this.sexo = sexo;
 		this.direccion = direccion;
 		this.telefono = telefono;
-		this.nombre = nombre;
-		this.apellido = apellido;
+		this.nombres = nombres;
+		this.apellidos = apellidos;
 		this.correo = correo;
 	}
 
@@ -96,20 +110,20 @@ public class Usuario implements Serializable{
 		this.telefono = telefono;
 	}
 
-	public String getNombre() {
-		return nombre;
+	public String getNombres() {
+		return nombres;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setNombres(String nombres) {
+		this.nombres = nombres;
 	}
 
-	public String getApellido() {
-		return apellido;
+	public String getApellidos() {
+		return apellidos;
 	}
 
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
+	public void setApellidos(String apellidos) {
+		this.apellidos = apellidos;
 	}
 
 	public String getCorreo() {
