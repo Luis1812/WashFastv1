@@ -7,19 +7,19 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import pe.edu.upc.dao.UsuarioDao;
+import pe.edu.upc.dao.IUsuarioDao;
 import pe.edu.upc.entity.Usuario;
-import pe.edu.upc.service.UsuarioService;
+import pe.edu.upc.service.IUsuarioService;
 
 @Named
 @RequestScoped
 
-public class UsuarioServiceImpl implements UsuarioService, Serializable {
+public class UsuarioServiceImpl implements IUsuarioService, Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Inject
-	private UsuarioDao uD;
+	private IUsuarioDao uD;
 	
 	@Override
 	public void insertar(Usuario usuario) {

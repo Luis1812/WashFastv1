@@ -10,7 +10,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import pe.edu.upc.entity.Usuario;
-import pe.edu.upc.service.UsuarioService;
+import pe.edu.upc.service.IUsuarioService;
 
 @Named
 @RequestScoped
@@ -20,7 +20,7 @@ public class UsuarioController implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Inject
-	private UsuarioService uService;
+	private IUsuarioService uService;
 	private Usuario usuario;
 	List<Usuario> listaUsuarios;
 	
