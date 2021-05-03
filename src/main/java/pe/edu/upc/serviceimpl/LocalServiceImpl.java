@@ -7,7 +7,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import pe.edu.upc.dao.LocalDao;
+import pe.edu.upc.dao.ILocalDao;
 import pe.edu.upc.entity.Local;
 import pe.edu.upc.service.ILocalService;
 
@@ -19,7 +19,7 @@ public class LocalServiceImpl implements ILocalService, Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Inject
-	private LocalDao lD;
+	private ILocalDao lD;
 	
 	@Override
 	public void insertar(Local local) {

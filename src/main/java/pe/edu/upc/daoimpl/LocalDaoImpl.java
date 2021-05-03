@@ -9,10 +9,10 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
-import pe.edu.upc.dao.LocalDao;
+import pe.edu.upc.dao.ILocalDao;
 import pe.edu.upc.entity.Local;
 
-public class LocalDaoImpl implements LocalDao, Serializable {
+public class LocalDaoImpl implements ILocalDao, Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@PersistenceContext(unitName="a")

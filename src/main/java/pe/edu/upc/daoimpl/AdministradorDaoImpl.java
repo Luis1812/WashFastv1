@@ -9,10 +9,10 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
-import pe.edu.upc.dao.AdministradorDao;
+import pe.edu.upc.dao.IAdministradorDao;
 import pe.edu.upc.entity.Administrador;
 
-public class AdministradorDaoImpl implements AdministradorDao, Serializable {
+public class AdministradorDaoImpl implements IAdministradorDao, Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@PersistenceContext(unitName="a")

@@ -9,10 +9,10 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
-import pe.edu.upc.dao.RepartidorDao;
+import pe.edu.upc.dao.IRepartidorDao;
 import pe.edu.upc.entity.Repartidor;
 
-public class RepartidorDaoImpl implements RepartidorDao, Serializable {
+public class RepartidorDaoImpl implements IRepartidorDao, Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@PersistenceContext(unitName="a")
