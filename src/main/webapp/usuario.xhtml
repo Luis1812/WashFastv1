@@ -87,11 +87,11 @@
 			<br />
 
 			<p:commandButton value="Grabar"
-				actionListener="#{servicioController.insertar()}"
+				actionListener="#{usuarioController.insertar()}"
 				styleClass="btn btn-primary " update="@form"
-				action="listServicio?faces-redirect=true" />
+				action="listUsuario?faces-redirect=true" />
 			<p:commandButton value="Cancelar"
-				action="listServicio?faces-redirect=true" immediate="true"
+				action="listUsuario?faces-redirect=true" immediate="true"
 				styleClass="btn btn-default" ajax="false" />
 
 			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
