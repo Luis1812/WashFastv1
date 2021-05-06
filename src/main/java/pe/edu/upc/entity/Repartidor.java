@@ -20,7 +20,7 @@ public class Repartidor implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	private int idLocal;
+	private int idRepartidor;
 	
 	@Column(name="Codigo Licencia", nullable=false, length=9)
 	private String codLicencia;
@@ -29,8 +29,8 @@ public class Repartidor implements Serializable{
 	private String placaMoto;
 	
 	@ManyToOne
-	@JoinColumn(name="idLocal", nullable=false)
-	private Local Local;
+	@JoinColumn(name="idRepartidor", nullable=false)
+	private Local local;
 	
 	@OneToOne
 	@JoinColumn(name="idUsuario", nullable=false)
@@ -40,22 +40,22 @@ public class Repartidor implements Serializable{
 		super();
 	}
 
-	public Repartidor(int idLocal, String codLicencia, String placaMoto, pe.edu.upc.entity.Local local,
+	public Repartidor(int idRepartidor, String codLicencia, String placaMoto, pe.edu.upc.entity.Local local,
 			Usuario usuario) {
 		super();
-		this.idLocal = idLocal;
+		this.idRepartidor = idRepartidor;
 		this.codLicencia = codLicencia;
 		this.placaMoto = placaMoto;
-		Local = local;
+		this.local = local;
 		this.usuario = usuario;
 	}
 
-	public int getIdLocal() {
-		return idLocal;
+	public int getIdRepartidor() {
+		return idRepartidor;
 	}
 
-	public void setIdLocal(int idLocal) {
-		this.idLocal = idLocal;
+	public void setIdRepartidor(int idRepartidor) {
+		this.idRepartidor = idRepartidor;
 	}
 
 	public String getCodLicencia() {
@@ -75,11 +75,11 @@ public class Repartidor implements Serializable{
 	}
 
 	public Local getLocal() {
-		return Local;
+		return local;
 	}
 
 	public void setLocal(Local local) {
-		Local = local;
+		this.local = local;
 	}
 
 	public Usuario getUsuario() {
