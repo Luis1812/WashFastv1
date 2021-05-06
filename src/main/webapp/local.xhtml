@@ -23,23 +23,38 @@
 				styleClass="form-control" value="#{localController.local.idLocal}"
 				required="true" />
 				
-			
-			<p:outputLabel for="cboMetodoPago" value="MetodoPago" />
-			
-			<p:selectOneMenu id="cboMetodoPago" value="#{clienteController.cliente.metodopago}"
-					converter="omnifaces.SelectItemsConverter">
-					<f:selectItems value="#{clienteController.listaMetodoPagos}" var="mp" 
-					 	itemLabel="#{mp.nombreMetodoPago}" itemValue="#{mp}"/>			
-			</p:selectOneMenu>				
+			<h:outputLabel for="nombreLocal" value="Nombre de local "
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="nombreLocal"
+				styleClass="form-control"
+				value="#{localController.local.nombreLocal}" maxlength="50"
+				required="true" />
+		
+			<h:outputLabel for="direccionLocal" value="Dirección del local "
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="direccionLocal"
+				styleClass="form-control"
+				value="#{localController.local.direccionLocal}" maxlength="100"
+				required="true" />
+				
+			<h:outputLabel for="telefonoLocal" value="Teléfono del local "
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="telefonoLocal"
+				styleClass="form-control"
+				value="#{localController.local.telefonoLocal}" maxlength="20"
+				required="true" />
 
 			<br />
 
 			<p:commandButton value="Grabar"
-				actionListener="#{clienteController.insertar()}"
+				actionListener="#{localController.insertar()}"
 				styleClass="btn btn-primary " update="@form"
-				action="listCliente?faces-redirect=true" />
+				action="listLocal?faces-redirect=true" />
 			<p:commandButton value="Cancelar"
-				action="listCliente?faces-redirect=true" immediate="true"
+				action="listLocal?faces-redirect=true" immediate="true"
 				styleClass="btn btn-default" ajax="false" />
 
 			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />

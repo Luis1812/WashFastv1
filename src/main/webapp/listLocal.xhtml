@@ -10,11 +10,11 @@
 <ui:composition template="master.xhtml"> 
 	
 	<ui:define name="title">
-		.:Lista de Clientes:.
+		.:Lista de Locales:.
 	</ui:define>
 	
 	<ui:define name="titleCont">
-		<span> Lista de clientes</span>
+		<span> Lista de locales</span>
 	</ui:define>
 	
 	<ui:define name="content">
@@ -24,8 +24,8 @@
 				<div class="col-sm-8 text-right">
 					<div class="form-group box-main-btn">
 						<span style="display: block; height:30px;"></span>
-						<p:commandButton value="Cliente"						
-							action="#{clienteController.nuevoCliente()}"
+						<p:commandButton value="Nuevo local"						
+							action="#{localController.nuevoLocal()}"
 							styleClass="btn btn-primary ajax=false" />
 					</div>
 				</div>
@@ -34,28 +34,31 @@
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="form-group table-responsive box-table-class">
-						<p:dataTable id="listCliente" var="cl"
-							value="#{clienteController.listaClientes}" paginator="true"
+						<p:dataTable id="listLocal" var="lo"
+							value="#{localController.listaLocales}" paginator="true"
 							paginatorPosition="top" rowsPerPageTemplate="10,20,30,40,50"
 							rows="10" styleClass="table table-bordered"
 							emptyMessage="No existen registros" rowIndexVar="item"
 							style="margin-bottom:0">
 
-							<p:column headerText="Id" sortBy="#{cl.idCliente}">
-								<h:outputText value="#{cl.idCliente}" />
+							<p:column headerText="Id Local" sortBy="#{lo.idLocal}">
+								<h:outputText value="#{lo.idLocal}" />
 							</p:column>
 							
-							<p:column headerText="IDMetodoPago">
-								<h:outputText value="#{cl.metodopago.idMetodoPago}" />
+							<p:column headerText="Nombre Local">
+								<h:outputText value="#{lo.nombreLocal}" />
 							</p:column>
-							<p:column headerText="IDUsuario">
-								<h:outputText value="#{cl.usuario.idUsuario}" />
+							<p:column headerText="Dirección Local">
+								<h:outputText value="#{lo.direccionLocal}" />
+							</p:column>
+							<p:column headerText="Número teléfono">
+								<h:outputText value="#{lo.telefonoLocal}" />
 							</p:column>
 							
 														
 							<p:column headerText="Operación" exportable="false">
-								<h:commandLink action="listCliente" value="Eliminar"
-									actionListener="#{clienteController.eliminar(cl)}" />
+								<h:commandLink action="listLocal" value="Eliminar"
+									actionListener="#{localController.eliminar(lo)}" />
 							</p:column>
 
 						</p:dataTable>

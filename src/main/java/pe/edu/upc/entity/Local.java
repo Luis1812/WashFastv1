@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Local")
+@Table(name="local")
 public class Local implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -19,13 +19,13 @@ public class Local implements Serializable{
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private int idLocal;
 	
-	@Column(name="Nombre local", nullable=false, length=50)
+	@Column(name="nombreLocal", nullable=false, length=50)
 	private String nombreLocal;
 	
-	@Column(name="Dirección local", nullable=false, length=100)
+	@Column(name="direccionLocal", nullable=false, length=100)
 	private String direccionLocal;
 	
-	@Column(name="Teléfono local", nullable=false, length=20)
+	@Column(name="telefonoLocal", nullable=false, length=20)
 	private String telefonoLocal;
 
 	public Local() {
@@ -72,5 +72,44 @@ public class Local implements Serializable{
 		this.telefonoLocal = telefonoLocal;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((direccionLocal == null) ? 0 : direccionLocal.hashCode());
+		result = prime * result + idLocal;
+		result = prime * result + ((nombreLocal == null) ? 0 : nombreLocal.hashCode());
+		result = prime * result + ((telefonoLocal == null) ? 0 : telefonoLocal.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Local other = (Local) obj;
+		if (direccionLocal == null) {
+			if (other.direccionLocal != null)
+				return false;
+		} else if (!direccionLocal.equals(other.direccionLocal))
+			return false;
+		if (idLocal != other.idLocal)
+			return false;
+		if (nombreLocal == null) {
+			if (other.nombreLocal != null)
+				return false;
+		} else if (!nombreLocal.equals(other.nombreLocal))
+			return false;
+		if (telefonoLocal == null) {
+			if (other.telefonoLocal != null)
+				return false;
+		} else if (!telefonoLocal.equals(other.telefonoLocal))
+			return false;
+		return true;
+	}
 	
 }

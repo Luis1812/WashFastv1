@@ -26,8 +26,8 @@ public class LocalController implements Serializable {
 	
 	@PostConstruct
 	public void init() {
-		this.listaLocales = new ArrayList<Local>();
-		this.local = new Local();
+		listaLocales = new ArrayList<Local>();
+		local = new Local();
 		this.listar();
 	}
 	
