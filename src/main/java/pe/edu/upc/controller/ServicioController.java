@@ -33,7 +33,7 @@ public class ServicioController implements Serializable {
 	
 	public String nuevoServicio() {
 		this.setServicio(new Servicio());
-		return "usuario.xhtml";
+		return "servicio.xhtml";
 	}
 	
 	public void insertar() {
