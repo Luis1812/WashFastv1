@@ -28,8 +28,8 @@ public class Detalle implements Serializable{
 	private Prenda prenda;
 	
 	@ManyToOne
-	@JoinColumn(name="idSevicio", nullable=false)
-	private Servicio sevicio;
+	@JoinColumn(name="idServicio", nullable=false)
+	private Servicio servicio;
 	
 	@ManyToOne
 	@JoinColumn(name="idPedido", nullable=false)
@@ -37,14 +37,15 @@ public class Detalle implements Serializable{
 
 	public Detalle() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 
-	public Detalle(int idDetalle, String cantidad, Prenda prenda, Servicio sevicio, Pedido pedido) {
+	public Detalle(int idDetalle, String cantidad, Prenda prenda, Servicio servicio, Pedido pedido) {
 		super();
 		this.idDetalle = idDetalle;
 		this.cantidad = cantidad;
 		this.prenda = prenda;
-		this.sevicio = sevicio;
+		this.servicio = servicio;
 		this.pedido = pedido;
 	}
 
@@ -72,12 +73,12 @@ public class Detalle implements Serializable{
 		this.prenda = prenda;
 	}
 
-	public Servicio getSevicio() {
-		return sevicio;
+	public Servicio getServicio() {
+		return servicio;
 	}
 
-	public void setSevicio(Servicio sevicio) {
-		this.sevicio = sevicio;
+	public void setServicio(Servicio servicio) {
+		this.servicio = servicio;
 	}
 
 	public Pedido getPedido() {
@@ -87,4 +88,5 @@ public class Detalle implements Serializable{
 	public void setPedido(Pedido pedido) {
 		this.pedido = pedido;
 	}
+
 }

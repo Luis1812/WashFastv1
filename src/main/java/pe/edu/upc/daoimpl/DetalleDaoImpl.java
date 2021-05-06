@@ -28,7 +28,7 @@ public class DetalleDaoImpl implements IDetalleDao, Serializable{
 	@Override
 	public List<Detalle> listar() {
 		List<Detalle>lista=new ArrayList<Detalle>();
-		Query q = em.createQuery("select d from Motor d");
+		Query q = em.createQuery("select d from Detalle d");
 		lista=(List<Detalle>)q.getResultList();
 		return lista;
 	}

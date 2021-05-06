@@ -48,4 +48,32 @@ public class Prenda implements Serializable {
 		this.tipoPrenda = tipoPrenda;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + idPrenda;
+		result = prime * result + ((tipoPrenda == null) ? 0 : tipoPrenda.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Prenda other = (Prenda) obj;
+		if (idPrenda != other.idPrenda)
+			return false;
+		if (tipoPrenda == null) {
+			if (other.tipoPrenda != null)
+				return false;
+		} else if (!tipoPrenda.equals(other.tipoPrenda))
+			return false;
+		return true;
+	}
+
 }

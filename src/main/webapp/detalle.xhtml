@@ -32,11 +32,10 @@
 
 			<p:outputLabel for="cboPrenda" value="Prenda" />
 
-			<p:selectOneMenu id="cboPrenda"
-				value="#{detalleController.detalle.prenda}"
+			<p:selectOneMenu id="cboPrenda" value="#{detalleController.detalle.prenda}"
 				converter="omnifaces.SelectItemsConverter">
-				<f:selectItems value="#{detalleController.listaDetalle}" var="p"
-					itemLabel="#{p.tipoPrenda}" itemValue="#{p}" />
+				<f:selectItems value="#{detalleController.listaPrendas}" var="p"
+					itemLabel="#{p.idPrenda}" itemValue="#{p}" />
 			</p:selectOneMenu>
 
 			<p:outputLabel for="cboServicio" value="Servicio" />
@@ -44,14 +43,14 @@
 			<p:selectOneMenu id="cboServicio"
 				value="#{detalleController.detalle.servicio}"
 				converter="omnifaces.SelectItemsConverter">
-				<f:selectItems value="#{detalleController.listaDetalle}" var="s"
-					itemLabel="#{s.tipoServicio}" itemValue="#{s}" />
+				<f:selectItems value="#{detalleController.listaServicios}" var="s"
+					itemLabel="#{s.idServicio}" itemValue="#{s}" />
 			</p:selectOneMenu>
 
 			<p:selectOneMenu id="cboPedido"
 				value="#{detalleController.detalle.pedido}"
 				converter="omnifaces.SelectItemsConverter">
-				<f:selectItems value="#{detalleController.listaDetalle}" var="p"
+				<f:selectItems value="#{detalleController.listaDetalles}" var="p"
 					itemLabel="#{p.idPedido}" itemValue="#{p}" />
 			</p:selectOneMenu>
 

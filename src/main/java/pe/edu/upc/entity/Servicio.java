@@ -60,5 +60,36 @@ public class Servicio implements Serializable {
 	public void setMontoServicio(int montoServicio) {
 		this.montoServicio = montoServicio;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + idServicio;
+		result = prime * result + montoServicio;
+		result = prime * result + ((tipoServicio == null) ? 0 : tipoServicio.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Servicio other = (Servicio) obj;
+		if (idServicio != other.idServicio)
+			return false;
+		if (montoServicio != other.montoServicio)
+			return false;
+		if (tipoServicio == null) {
+			if (other.tipoServicio != null)
+				return false;
+		} else if (!tipoServicio.equals(other.tipoServicio))
+			return false;
+		return true;
+	}
 	
 }

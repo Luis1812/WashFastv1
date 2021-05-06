@@ -34,13 +34,13 @@
 				<div class="col-sm-12">
 					<div class="form-group table-responsive box-table-class">
 						<p:dataTable id="listDetalle" var="det"
-							value="#{detalleController.listaDetalle}" paginator="true"
+							value="#{detalleController.listaDetalles}" paginator="true"
 							paginatorPosition="top" rowsPerPageTemplate="10,20,30,40,50"
 							rows="10" styleClass="table table-bordered"
 							emptyMessage="No existen registros" rowIndexVar="item"
 							style="margin-bottom:0">
 
-							<p:column headerText="Id" sortBy="#{det.idDetalle">
+							<p:column headerText="Id" sortBy="#{det.idDetalle}">
 								<h:outputText value="#{det.idDetalle}" />
 							</p:column>
 
