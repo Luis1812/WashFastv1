@@ -16,6 +16,7 @@ import pe.edu.upc.service.IPrendaService;
 @RequestScoped
 
 public class PrendaController implements Serializable {
+	
 	private static final long serialVersionUID = 1L;
 
 	@Inject
@@ -54,7 +55,10 @@ public class PrendaController implements Serializable {
 		this.listar();
 	}
 
-	public Prenda getMotor() {
+	
+	
+	
+	public Prenda getPrenda() {
 		return prenda;
 	}
 	

@@ -7,6 +7,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import pe.edu.upc.dao.IPrendaDao;
 import pe.edu.upc.entity.Prenda;
 import pe.edu.upc.service.IPrendaService;
 
@@ -17,7 +18,7 @@ public class PrendaServiceImpl implements IPrendaService, Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Inject
-	private IPrendaService mD;
+	private IPrendaDao mD;
 	
 	@Override
 	public void insertar(Prenda prenda) {

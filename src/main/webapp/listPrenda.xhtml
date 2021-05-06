@@ -25,7 +25,7 @@
 					<div class="form-group box-main-btn">
 						<span style="display: block; height:30px;"></span>
 						<p:commandButton value="Nuevo"						
-							action="#{PrendaController.nuevoPrenda()}"
+							action="#{prendaController.nuevoPrenda()}"
 							styleClass="btn btn-primary ajax=false" />
 					</div>
 				</div>
@@ -35,7 +35,7 @@
 				<div class="col-sm-12">
 					<div class="form-group table-responsive box-table-class">
 						<p:dataTable id="listPrenda" var="pre"
-							value="#{PrendaController.listaPrenda}" paginator="true"
+							value="#{prendaController.listaPrendas}" paginator="true"
 							paginatorPosition="top" rowsPerPageTemplate="10,20,30,40,50"
 							rows="10" styleClass="table table-bordered"
 							emptyMessage="No existen registros" rowIndexVar="item"
@@ -51,7 +51,7 @@
 							
 							<p:column headerText="Operación" exportable="false">
 								<h:commandLink action="listPrenda" value="Eliminar"
-									actionListener="#{PrendaController.eliminar(pre)}" />
+									actionListener="#{prendaController.eliminar(pre)}" />
 							</p:column>
 
 						</p:dataTable>
