@@ -42,7 +42,6 @@ public class MetodoPagoController implements Serializable {
 		this.listar();
 	}
 
-	
 	public void listar() {
 		listaMetodoPagos = mService.listar();
 		
@@ -56,6 +55,8 @@ public class MetodoPagoController implements Serializable {
 		mService.eliminar(metodopago.getIdMetodoPago());
 		this.listar();
 	}
+	
+	
 
 	public MetodoPago getMetodopago() {
 		return metodopago;

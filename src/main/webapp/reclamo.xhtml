@@ -44,7 +44,7 @@
 			<p:selectOneMenu id="cboCliente" value="#{reclamoController.reclamo.cliente}"
 					converter="omnifaces.SelectItemsConverter">
 					<f:selectItems value="#{reclamoController.listaClientes}" var="c" 
-					 	itemLabel="#{c.idUsuario}" itemValue="#{c}"/>			
+					 	itemLabel="#{c.idCliente}" itemValue="#{c}"/>			
 			</p:selectOneMenu>	
 			
 			<p:outputLabel for="cboLocal" value="Local" />
