@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html 	
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+		
+<ui:composition template="master.xhtml"> 
+	
+	<ui:define name="title">
+		.:Lista de Usuarios:.
+	</ui:define>
+	
+	<ui:define name="titleCont">
+		<span>Lista de Usuarios</span>
+	</ui:define>
+	
+	<ui:define name="content">
+		<h:form>
+		
+			<div class="row">
+				<div class="col-sm-8 text-right">
+					<div class="form-group box-main-btn">
+						<span style="display: block; height:30px;"></span>
+						<p:commandButton value="Nuevo"						
+							action="#{usuarioController.nuevoUsuario()}"
+							styleClass="btn btn-primary ajax=false" />
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group table-responsive box-table-class">
+						<p:dataTable id="listUsuario" var="u"
+							value="#{usuarioController.listaUsuarios}" paginator="true"
+							paginatorPosition="top" rowsPerPageTemplate="10,20,30,40,50"
+							rows="10" styleClass="table table-bordered"
+							emptyMessage="No existen registros" rowIndexVar="item"
+							style="margin-bottom:0">
+
+							<p:column headerText="Id" sortBy="#{u.idUsuario}">
+								<h:outputText value="#{u.idUsuario}" />
+							</p:column>
+
+							<p:column headerText="Usuario" sortBy="#{u.usuario}">
+								<h:outputText value="#{u.usuario}" />
+							</p:column>
+							
+							<p:column headerText="Contraseña" sortBy="#{u.contrasena}">
+								<h:outputText value="#{u.contrasena}" />
+							</p:column>
+							
+							<p:column headerText="Nombres" sortBy="#{u.nombres}">
+								<h:outputText value="#{u.nombres}" />
+							</p:column>
+							
+							<p:column headerText="Apellidos" sortBy="#{u.apellidos}">
+								<h:outputText value="#{u.apellidos}" />
+							</p:column>
+							
+							<p:column headerText="Correo" sortBy="#{u.correo}">
+								<h:outputText value="#{u.correo}" />
+							</p:column>
+							
+							<p:column headerText="Sexo" sortBy="#{u.sexo}">
+								<h:outputText value="#{u.sexo}" />
+							</p:column>
+							
+							<p:column headerText="Dirección" sortBy="#{u.direccion}">
+								<h:outputText value="#{u.direccion}" />
+							</p:column>
+							
+							<p:column headerText="Teléfono" sortBy="#{u.telefono}">
+								<h:outputText value="#{u.telefono}" />
+							</p:column>
+							
+							
+							<p:column headerText="Operación" exportable="false">
+								<h:commandLink action="listServicio" value="Eliminar"
+									actionListener="#{servicioController.eliminar(s)}" />
+							</p:column>
+
+						</p:dataTable>
+					</div>
+				</div>				
+			</div>									
+		</h:form>
+	</ui:define>
+	
+	<ui:define name="footerCont">
+	</ui:define>
+		
+</ui:composition> 
+</html>

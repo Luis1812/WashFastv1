@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Usuarios:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span> Usuarios </span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="idUsuario" value="Id " styleClass="control-label" />
+			<p:inputText autocomplete="off" id="idServicio"
+				styleClass="form-control" value="#{usuarioController.usuario.idUsuario}"
+				required="true" />
+				
+			<h:outputLabel for="usuario" value="Nombre de usuario"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="usuario"
+				styleClass="form-control"
+				value="#{usuarioController.usuario.usuario}" maxlength="30"
+				required="true" />
+				
+			<h:outputLabel for="contrasena" value="Contraseña"
+			styleClass="control-label" />
+			<p:inputText autocomplete="off" id="contrasena"
+				styleClass="form-control"
+				value="#{usuarioController.usuario.contrasena}"
+				required="true" />
+				
+			<h:outputLabel for="nombres" value="Nombres"
+			styleClass="control-label" />
+			<p:inputText autocomplete="off" id="nombres"
+				styleClass="form-control"
+				value="#{usuarioController.usuario.nombres}"
+				required="true" />
+			
+			<h:outputLabel for="apellidos" value="Apellidos"
+			styleClass="control-label" />
+			<p:inputText autocomplete="off" id="apellidos"
+				styleClass="form-control"
+				value="#{usuarioController.usuario.apellidos}"
+				required="true" />
+				
+			<h:outputLabel for="correo" value="Correo"
+			styleClass="control-label" />
+			<p:inputText autocomplete="off" id="correo"
+				styleClass="form-control"
+				validatorMessage="Ingrese un correo válido."
+				value="#{usuarioController.usuario.correo}"
+				required="true">
+				
+				<f:validateRegex 
+				pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+							
+			</p:inputText>
+			
+			<h:outputLabel for="sexo" value="Sexo"
+			styleClass="control-label" />	
+			<p:inputText autocomplete="off" id="sexo"
+				styleClass="form-control"
+				value="#{usuarioController.usuario.sexo}"
+				required="true" />			
+			
+			<h:outputLabel for="direccion" value="Dirección"
+			styleClass="control-label" />
+			<p:inputText autocomplete="off" id="direccion"
+				styleClass="form-control"
+				value="#{usuarioController.usuario.direccion}"
+				required="true" />
+				
+			<h:outputLabel for="telefono" value="Teléfono"
+			styleClass="control-label" />
+			<p:inputText autocomplete="off" id="telefono"
+				styleClass="form-control"
+				value="#{usuarioController.usuario.telefono}"
+				required="true" />
+
+			<br />
+
+			<p:commandButton value="Grabar"
+				actionListener="#{servicioController.insertar()}"
+				styleClass="btn btn-primary " update="@form"
+				action="listServicio?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listServicio?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>
