@@ -28,7 +28,7 @@
 			
 			<p:selectOneMenu id="cboUsuario" value="#{clienteController.cliente.usuario}"
 					converter="omnifaces.SelectItemsConverter">
-					<f:selectItems value="#{clienteController.listaClientes}" var="u" 
+					<f:selectItems value="#{clienteController.listaUsuarios}" var="u" 
 					 	itemLabel="#{u.nombres}" itemValue="#{u}"/>			
 			</p:selectOneMenu>	
 			
