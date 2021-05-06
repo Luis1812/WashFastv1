@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Registro de Reclamos:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span> Registro de Reclamos </span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="idReclamo" value="Id " styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="idReclamo"
+				styleClass="form-control" value="#{reclamoController.reclamo.idReclamo}"
+				required="true" />
+				
+			<h:outputLabel for="detalleReclamo" value="Reclamo" 
+				styleClass="control-label" />
+				
+				<p:inputText autocomplete="off" id="detalleReclamo"
+				styleClass="form-control"
+				value="#{reclamoController.reclamo.detalleReclamo}" maxlength="200"
+				required="true" />
+				
+			<p:outputLabel for="cboFecha" value="Fecha" />
+			
+			<p:selectOneMenu id="cboFecha" value="#{reclamoController.reclamo.detalleReclamo}"
+					converter="omnifaces.formatDate">
+						
+			</p:selectOneMenu>
+							
+			<p:outputLabel for="cboCliente" value="Cliente" />
+			
+			<p:selectOneMenu id="cboCliente" value="#{reclamoController.reclamo.cliente}"
+					converter="omnifaces.SelectItemsConverter">
+					<f:selectItems value="#{reclamoController.listaClientes}" var="c" 
+					 	itemLabel="#{c.idUsuario}" itemValue="#{c}"/>			
+			</p:selectOneMenu>	
+			
+			<p:outputLabel for="cboLocal" value="Local" />
+			
+			<p:selectOneMenu id="cboLocal" value="#{reclamoController.reclamo.local}"
+					converter="omnifaces.SelectItemsConverter">
+					<f:selectItems value="#{reclamoController.listaLocales}" var="l" 
+					 	itemLabel="#{l.nombreLocal}" itemValue="#{l}"/>			
+			</p:selectOneMenu>				
+
+			<br />
+
+			<p:commandButton value="Grabar"
+				actionListener="#{reclamoController.insertar()}"
+				styleClass="btn btn-primary " update="@form"
+				action="listReclamo?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listReclamo?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>
