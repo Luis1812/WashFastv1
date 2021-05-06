@@ -26,19 +26,17 @@ public class ReclamoController implements Serializable {
 	
 	@Inject
 	private IClienteService cService;
+	private Cliente cliente;
+	List<Cliente> listaClientes;
 	
 	@Inject
 	private ILocalService lService;
+	private Local local;
+	List<Local> listaLocales;
 	
 	@Inject
 	private IReclamoService rService;	
-	
-	private Cliente cliente;
-	private Local local;
 	private Reclamo reclamo;
-	
-	List<Cliente> listaClientes;
-	List<Local> listaLocales;
 	List<Reclamo> listaReclamos;
 	
 	@PostConstruct
