@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Lista de Repartidores:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span> Repartidores </span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="idRepartidor" value="Id " styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="idRepartidor"
+				styleClass="form-control" value="#{repartidorController.repartidor.idRepartidor}"
+				required="true" />
+				
+			<h:outputLabel for="codigoLicencia" value="Licencia "
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="codigoLicencia"
+				styleClass="form-control"
+				value="#{repartidorController.repartidor.codLicencia}" maxlength="9"
+				required="true" />
+				
+			<h:outputLabel for="placaMoto" value="Placa  "
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="placaMoto"
+				styleClass="form-control"
+				value="#{repartidorController.repartidor.placaMoto}" maxlength="6"
+				required="true" />	
+			
+			<p:outputLabel for="cboLocal" value="Local" />
+			
+			<p:selectOneMenu id="cboLocal" value="#{repartidorController.repartidor.local}"
+					converter="omnifaces.SelectItemsConverter">
+					<f:selectItems value="#{repartidorController.listaLocales}" var="lo" 
+					 	itemLabel="#{lo.nombreLocal}" itemValue="#{lo}"/>			
+			</p:selectOneMenu>		
+			
+			<p:outputLabel for="cboUsuario" value="Usuario" />
+			
+			<p:selectOneMenu id="cboUsuario" value="#{repartidorController.repartidor.usuario}"
+					converter="omnifaces.SelectItemsConverter">
+					<f:selectItems value="#{repartidorController.listaUsuarios}" var="u" 
+					 	itemLabel="#{u.nombres}" itemValue="#{u}"/>			
+			</p:selectOneMenu>	
+		
+
+			<br />
+
+			<p:commandButton value="Grabar"
+				actionListener="#{repartidorController.insertar()}"
+				styleClass="btn btn-primary " update="@form"
+				action="listRepartidor?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listRepartidor?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>

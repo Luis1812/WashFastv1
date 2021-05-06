@@ -29,20 +29,20 @@ public class AdministradorController implements Serializable {
 	private IAdministradorService aService;	
 	
 	private Usuario usuario;
-	private Administrador admin;
+	private Administrador administrador;
 	
 	List<Usuario> listaUsuarios;
-	List<Administrador> listaAdmins;
+	List<Administrador> listaAdministradores;
 	
 	@PostConstruct
 	public void init() {
 		usuario = new Usuario();
-		admin = new Administrador();
+		administrador = new Administrador();
 		
 		listaUsuarios = new ArrayList<Usuario>();
-		listaAdmins = new ArrayList<Administrador>();
+		listaAdministradores = new ArrayList<Administrador>();
 		
-		this.listCliente();
+		this.listAdministrador();
 		this.listUsuario();
 		
 	}
@@ -53,28 +53,32 @@ public class AdministradorController implements Serializable {
 	}
 	
 	public void insertar() {
-		aService.insertar(admin);
-		limpiarCliente();
-		this.listCliente();
+		aService.insertar(administrador);
+		limpiarAdministrador();
+		this.listAdministrador();
 	}
 	
 	//------
-	public void listCliente() {
-		listaAdmins = aService.listar();
+	public void listAdministrador() {
+		listaAdministradores = aService.listar();
 	}
 	
 	public void listUsuario() {
 		listaUsuarios = uService.listar();
 	}
 	
-	public void limpiarCliente() {
+	
+	//------
+	
+	public void limpiarAdministrador() {
 		this.init();
 	}
 	
-	public void eliminar(Administrador admin) {
-		aService.eliminar(admin.getIdAdmin());
-		this.listCliente();
+	public void eliminar(Administrador administrador) {
+		aService.eliminar(administrador.getIdAdmin());
+		this.listAdministrador();
 	}
+	//----
 
 	public Usuario getUsuario() {
 		return usuario;
@@ -85,11 +89,11 @@ public class AdministradorController implements Serializable {
 	}
 
 	public Administrador getAdministrador() {
-		return admin;
+		return administrador;
 	}
 
 	public void setAdministrador(Administrador administrador) {
-		this.admin = administrador;
+		this.administrador = administrador;
 	}
 
 	public List<Usuario> getListaUsuarios() {
@@ -100,12 +104,13 @@ public class AdministradorController implements Serializable {
 		this.listaUsuarios = listaUsuarios;
 	}
 
-	public List<Administrador> getListaAdministrador() {
-		return listaAdmins;
+	public List<Administrador> getListaAdministradores() {
+		return listaAdministradores;
 	}
 
-	public void setListaAdministradores(List<Administrador> listaAdmins) {
-		this.listaAdmins = listaAdmins;
+	public void setListaAdministradores(List<Administrador> listaAdministradores) {
+		this.listaAdministradores = listaAdministradores;
 	}
 
+	
 }

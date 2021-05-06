@@ -13,7 +13,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Repartidor")
+@Table(name="repartidor")
 public class Repartidor implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -22,10 +22,10 @@ public class Repartidor implements Serializable{
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private int idRepartidor;
 	
-	@Column(name="Codigo Licencia", nullable=false, length=9)
+	@Column(name="codigoLicencia", nullable=false, length=9)
 	private String codLicencia;
 	
-	@Column(name="Placa", nullable=false, length=6)
+	@Column(name="placaMoto", nullable=false, length=6)
 	private String placaMoto;
 	
 	@ManyToOne

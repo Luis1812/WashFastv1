@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Lista de Administradores:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span> Administradores </span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="idAdministrador" value="Id " styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="idAdministrador"
+				styleClass="form-control" value="#{administradorController.administrador.idAdmin}"
+				required="true" />		
+			
+			<p:outputLabel for="cboUsuario" value="Usuario" />
+			
+			<p:selectOneMenu id="cboUsuario" value="#{administradorController.administrador.usuario}"
+					converter="omnifaces.SelectItemsConverter">
+					<f:selectItems value="#{administradorController.listaUsuarios}" var="u" 
+					 	itemLabel="#{u.nombres}" itemValue="#{u}"/>			
+			</p:selectOneMenu>	
+		
+
+			<br />
+
+			<p:commandButton value="Grabar"
+				actionListener="#{administradorController.insertar()}"
+				styleClass="btn btn-primary " update="@form"
+				action="listAdministrador?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listAdministrador?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>

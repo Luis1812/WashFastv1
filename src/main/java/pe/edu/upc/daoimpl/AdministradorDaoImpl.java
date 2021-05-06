@@ -28,7 +28,7 @@ public class AdministradorDaoImpl implements IAdministradorDao, Serializable {
 	@Override
 	public List<Administrador> listar() {
 		List<Administrador> lista = new ArrayList<Administrador>();
-		Query q = em.createQuery("select l from Motor l");
+		Query q = em.createQuery("select a from Administrador a");
 		lista = (List<Administrador>) q.getResultList();
 		return lista;
 	}
