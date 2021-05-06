@@ -9,10 +9,10 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
-import pe.edu.upc.dao.IUsuarioDao;
-import pe.edu.upc.entity.Usuario;
+import pe.edu.upc.dao.IServicioDao;
+import pe.edu.upc.entity.Servicio;
 
-public class UsuarioDaoImpl implements IUsuarioDao, Serializable{
+public class ServicioDaoImpl implements IServicioDao, Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -21,9 +21,9 @@ public class UsuarioDaoImpl implements IUsuarioDao, Serializable{
 
 	@Transactional
 	@Override
-	public void insertar(Usuario usuario) {
+	public void insertar(Servicio servicio) {
 		try {
-			em.persist(usuario);
+			em.persist(servicio);
 		}
 		catch(Exception ex) {
 			System.out.println(ex.getMessage());
@@ -32,11 +32,11 @@ public class UsuarioDaoImpl implements IUsuarioDao, Serializable{
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Usuario> listar() {
-		List<Usuario> lista = new ArrayList<Usuario>();
+	public List<Servicio> listar() {
+		List<Servicio> lista = new ArrayList<Servicio>();
 		try {
-			Query q = em.createQuery("select u from Usuario u");
-			lista = (List<Usuario>) q.getResultList();
+			Query q = em.createQuery("select s from Servicio s");
+			lista = (List<Servicio>) q.getResultList();
 		}
 		catch(Exception ex) {
 			System.out.println(ex.getMessage());
@@ -46,11 +46,11 @@ public class UsuarioDaoImpl implements IUsuarioDao, Serializable{
 
 	@Transactional
 	@Override
-	public void eliminar(int idUsuario) {		
-		Usuario usuario = new Usuario();
+	public void eliminar(int idServicio) {		
+		Servicio servicio = new Servicio();
 		try {
-			usuario = em.getReference(Usuario.class, idUsuario);
-			em.remove(usuario);
+			servicio = em.getReference(Servicio.class, idServicio);
+			em.remove(servicio);
 		}
 		catch(Exception ex) {
 			System.out.println(ex.getMessage());
