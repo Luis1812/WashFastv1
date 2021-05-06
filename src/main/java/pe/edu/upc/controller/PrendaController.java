@@ -21,11 +21,11 @@ public class PrendaController implements Serializable {
 	@Inject
 	private IPrendaService pService;
 	private Prenda prenda;
-	List<Prenda> listaPrenda;
+	List<Prenda> listaPrendas;
 
 	@PostConstruct
 	public void init() {
-		this.listaPrenda = new ArrayList<Prenda>();
+		this.listaPrendas = new ArrayList<Prenda>();
 		this.prenda = new Prenda();
 		this.listar();
 	}
@@ -42,7 +42,7 @@ public class PrendaController implements Serializable {
 	}
 	
 	private void listar() {
-		listaPrenda = pService.listar();
+		listaPrendas = pService.listar();
 	}
 	
 	private void limpiarPrenda() {
@@ -54,7 +54,20 @@ public class PrendaController implements Serializable {
 		this.listar();
 	}
 
+	public Prenda getMotor() {
+		return prenda;
+	}
+	
 	private void setPrenda(Prenda prenda) {
 		this.prenda = prenda;
 	}
+	
+	public List<Prenda> getListaPrendas() {
+		return listaPrendas;
+	}
+	
+	public void setListaPrendas(List<Prenda> listaPrendas) {
+		this.listaPrendas = listaPrendas;
+	}
+	
 }
