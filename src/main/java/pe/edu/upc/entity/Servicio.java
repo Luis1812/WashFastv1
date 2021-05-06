@@ -22,7 +22,7 @@ public class Servicio implements Serializable {
 	@Column(name="tipoServicio", nullable=false, length=100)
 	private String tipoServicio;
 	
-	@Column(name="idPedido", nullable=false)
+	@Column(name="montoServicio", nullable=false)
 	private int montoServicio;
 
 	public Servicio(int idServicio, String tipoServicio, int montoServicio) {
