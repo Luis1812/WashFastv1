@@ -2,6 +2,7 @@ package pe.edu.upc.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,10 +19,13 @@ public class Local implements Serializable{
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private int idLocal;
 	
+	@Column(name="Nombre local", nullable=false, length=50)
 	private String nombreLocal;
 	
+	@Column(name="Dirección local", nullable=false, length=100)
 	private String direccionLocal;
 	
+	@Column(name="Teléfono local", nullable=false, length=20)
 	private String telefonoLocal;
 
 	public Local() {
