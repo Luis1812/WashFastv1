@@ -29,7 +29,7 @@ public class Repartidor implements Serializable{
 	private String placaMoto;
 	
 	@ManyToOne
-	@JoinColumn(name="idRepartidor", nullable=false)
+	@JoinColumn(name="idLocal", nullable=false)
 	private Local local;
 	
 	@OneToOne
