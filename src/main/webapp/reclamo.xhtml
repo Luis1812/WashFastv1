@@ -30,14 +30,15 @@
 				styleClass="form-control"
 				value="#{reclamoController.reclamo.detalleReclamo}" maxlength="200"
 				required="true" />
-				
-			<p:outputLabel for="cboFecha" value="Fecha" />
+		
+			<h:outputLabel for="fechaMotor" value="Fecha "
+				styleClass="control-label" />
+
+			<p:calendar id="fechaReclamo" pattern="dd/MM/yyyy"
+				value="#{reclamoController.reclamo.fechaReclamo}" showOn="button"
+				timeZone="UTC" required="true">
+			</p:calendar>
 			
-			<p:selectOneMenu id="cboFecha" value="#{reclamoController.reclamo.detalleReclamo}"
-					converter="omnifaces.formatDate">
-						
-			</p:selectOneMenu>
-							
 			<p:outputLabel for="cboCliente" value="Cliente" />
 			
 			<p:selectOneMenu id="cboCliente" value="#{reclamoController.reclamo.cliente}"

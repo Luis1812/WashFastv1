@@ -49,8 +49,10 @@
 								<h:outputText value="#{rec.detalleReclamo}" />
 							</p:column>
 							
-							<p:column headerText="Fecha" sortBy="#{rec.fechaReclamo}">
-								<h:outputText value="#{rec.fechaReclamo}" />
+							<p:column headerText="Fecha " sortBy="#{rec.fechaReclamo}">
+								<h:outputText value="#{rec.fechaReclamo}">
+									<f:convertDateTime pattern="dd-MM-yyyy" timeZone="UTC" />
+								</h:outputText>
 							</p:column>
 							
 							<p:column headerText="Id Cliente">

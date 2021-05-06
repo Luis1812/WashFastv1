@@ -2,6 +2,7 @@ package pe.edu.upc.entity;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,9 +27,9 @@ public class Reclamo implements Serializable {
 	@Column(name="detalleReclamo", nullable=false, length=200)
 	private String detalleReclamo;
 	
-	@Column(name="fechaReclamo", nullable=false, length = 40)
-	private Calendar fechaReclamo;
-	
+	private Date fechaReclamo;
+
+
 	@ManyToOne
 	@JoinColumn(name="idCliente", nullable=false)
 	private Cliente cliente;
@@ -42,7 +43,7 @@ public class Reclamo implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Reclamo(int idReclamo, String detalleReclamo, Calendar fechaReclamo, Cliente cliente, Local local) {
+	public Reclamo(int idReclamo, String detalleReclamo, Date fechaReclamo, Cliente cliente, Local local) {
 		super();
 		this.idReclamo = idReclamo;
 		this.detalleReclamo = detalleReclamo;
@@ -67,11 +68,11 @@ public class Reclamo implements Serializable {
 		this.detalleReclamo = detalleReclamo;
 	}
 
-	public Calendar getFechaReclamo() {
+	public Date getFechaReclamo() {
 		return fechaReclamo;
 	}
 
-	public void setFechaReclamo(Calendar fechaReclamo) {
+	public void setFechaReclamo(Date fechaReclamo) {
 		this.fechaReclamo = fechaReclamo;
 	}
 
@@ -91,7 +92,5 @@ public class Reclamo implements Serializable {
 		this.local = local;
 	}
 
-	
 
-	
 }
