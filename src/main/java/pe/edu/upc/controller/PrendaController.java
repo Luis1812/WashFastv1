@@ -55,9 +55,6 @@ public class PrendaController implements Serializable {
 		this.listar();
 	}
 
-	
-	
-	
 	public Prenda getPrenda() {
 		return prenda;
 	}
